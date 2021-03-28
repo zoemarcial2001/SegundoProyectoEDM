@@ -1,32 +1,55 @@
 package ar.edu.unju.edm.model;
 
 public class Calculadora {
-	private int a;
-	private int b;
+	private float a;
+	private float b;
 	
-	public Calculadora() {
+	public Calculadora() {   //metodo constructor
 		
 	}
 	
-	public int Sumar() {
-		int suma;
+	public float sumar() {
+		float suma;
 		suma=a+b;
 		return suma;
 	}
+	
+	public float dividir() {
+		float division=0;
+		if (b==0) {
+			System.out.println("El segundo numero no puede ser 0");
+		}
+		else {
+			division=a/b;
+		}
+		return division;
+	}
+	
+	public float multiplicar() {
+		float multiplicacion;
+		multiplicacion=a*b;
+		return multiplicacion;
+	}
+	
+	public float restar() {
+		float resta;
+		resta=a-b;
+		return resta;
+	}
 
-	public int getA() {
+	public float getA() {
 		return a;
 	}
 
-	public void setA(int a) {
+	public void setA(float a) {
 		this.a = a;
 	}
 
-	public int getB() {
+	public float getB() {
 		return b;
 	}
 
-	public void setB(int b) {
+	public void setB(float b) {
 		this.b = b;
 	}
 
@@ -34,8 +57,8 @@ public class Calculadora {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + a;
-		result = prime * result + b;
+		result = prime * result + Float.floatToIntBits(a);
+		result = prime * result + Float.floatToIntBits(b);
 		return result;
 	}
 
@@ -48,9 +71,9 @@ public class Calculadora {
 		if (getClass() != obj.getClass())
 			return false;
 		Calculadora other = (Calculadora) obj;
-		if (a != other.a)
+		if (Float.floatToIntBits(a) != Float.floatToIntBits(other.a))
 			return false;
-		if (b != other.b)
+		if (Float.floatToIntBits(b) != Float.floatToIntBits(other.b))
 			return false;
 		return true;
 	}
@@ -60,4 +83,7 @@ public class Calculadora {
 		return "Calculadora [a=" + a + ", b=" + b + "]";
 	}
 
+	
+
+	
 }
